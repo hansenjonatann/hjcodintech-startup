@@ -1,34 +1,51 @@
+"use client";
+import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 const MemberPage = () => {
+  const [members, setMembers] = useState([]);
+
+  const fetchMembers = async () => {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/member`
+    );
+
+    if (response) {
+      setMembers(response.data.data);
+    }
+  };
+
+  useEffect(() => {
+    fetchMembers();
+  }, []);
   return (
-    <div className="h-screen w-full bg-gray-900">
+    <div className="py-8 w-full bg-gray-900">
       <h1 className="text-center text-xl font-bold text-white">Anggota </h1>
-      <div className="mt-5 mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <a href="#" className="group relative block bg-black">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
-            className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-          />
-
-          <div className="relative p-4 sm:p-6 lg:p-8">
-            <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
-              CEO
-            </p>
-
-            <p className="text-xl font-bold text-white sm:text-2xl">
-              Hansen Jonatan
-            </p>
-
-            <div className="mt-32 sm:mt-48 lg:mt-64">
-              <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="text-sm text-white">
-                  Hansen Jonatan adalah seorang mahasiswa semester 4 yang
-                  memiliki hobi dan ketertarikan di bidang teknologi.
-                </p>
-              </div>
+      <div className="mt-5 mx-4 gap-x-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+        {members.map((member: any, index) => (
+          <div
+            key={index}
+            className="w-full  mt-8 md:mt-0     bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div className="flex flex-col mt-8 items-center pb-10">
+              <Image
+                className=" mb-3 rounded-full shadow-lg"
+                src={member.profileUrl}
+                alt={member.name}
+                width={96}
+                height={96}
+              />
+              <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                {member.name}
+              </h5>
+              <span className="text-sm font-bold text-gray-500 dark:text-gray-400">
+                {member.job.title}
+              </span>
             </div>
           </div>
-        </a>
+        ))}
       </div>
     </div>
   );

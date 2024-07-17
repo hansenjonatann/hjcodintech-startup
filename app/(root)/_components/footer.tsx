@@ -57,7 +57,7 @@ const Footer = () => {
 
               <li>
                 <a
-                  href="https://instagram.com/hjcodin.tech"
+                  href="https://instagram.com/hjcodintech"
                   rel="noreferrer"
                   target="_blank"
                   className="text-white transition hover:opacity-75"
@@ -162,7 +162,8 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://instagram.com/hjcodintech"
+                    target="__blank"
                     className="text-white transition hover:opacity-75"
                   >
                     {" "}

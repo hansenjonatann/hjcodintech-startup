@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   ],
 
   title: "HJ Codin Tech | Solusi Anda untuk Belajar Teknologi!",
+  icons: [{ rel: "icon", url: "/logo.png" }],
   description:
     "HJ Codin Tech adalah Startup yang didirikan oleh Hansen Jonatan untuk membantu pemula , pengguna awam dalam mempelajari teknologi. HJ Codin Tech juga menyediakan berbagai macam layanan.",
 };
