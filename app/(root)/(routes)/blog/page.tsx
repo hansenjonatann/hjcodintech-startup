@@ -2,6 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import motion from "framer-motion";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -27,7 +28,7 @@ const BlogPage = () => {
   return (
     <>
       <div className="p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 space-y-4 lg:space-y-0 lg:gap-4 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog: any, index) => (
             <Link key={index} href={`/blog/detail/${blog.id}`}>
               <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25">

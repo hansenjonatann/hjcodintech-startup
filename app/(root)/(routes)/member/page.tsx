@@ -29,13 +29,13 @@ const MemberPage = () => {
             key={index}
             className="w-full  mt-8 md:mt-0     bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
-            <div className="flex flex-col mt-8 items-center pb-10">
+            <div className="flex flex-col my-8 items-center ">
               <Image
-                className=" mb-3 rounded-full shadow-lg"
+                className=" mb-3 rounded-lg ring-blue-800 ring-2  shadow-lg"
                 src={member.profileUrl}
                 alt={member.name}
-                width={96}
-                height={96}
+                width={100}
+                height={100}
               />
               <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                 {member.name}
