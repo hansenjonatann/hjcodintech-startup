@@ -55,7 +55,13 @@ const NavigationBar = () => {
             } w-full   md:block md:w-auto`}
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col p-4 md:p-0 my-4 border border-gray-100 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-900">
+            <ul
+              className={
+                isOpen
+                  ? "font-medium flex flex-col p-4 md:p-0 my-4 border border-gray-100 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-900"
+                  : "font-medium flex items-center  p-4 md:p-0  border border-gray-100 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-900"
+              }
+            >
               {navbarList.map((nav) => (
                 <li key={nav.id}>
                   <Link

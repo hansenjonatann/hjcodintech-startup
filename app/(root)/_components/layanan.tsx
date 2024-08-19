@@ -5,6 +5,7 @@ const Layanan = () => {
   const layananList = [
     {
       id: 1,
+      icon: BookOpen,
       title: "HJ Codin Tech Academy",
       description:
         "HJ Codin Tech Academy adalah sebuah platform yang dapat anda gunakan dalam mempelajari bidang teknologi. ",
@@ -12,6 +13,8 @@ const Layanan = () => {
     },
     {
       id: 2,
+      icon: Group,
+
       title: "HJ Codin Tech Community",
       description:
         "HJ Codin Tech Community adalah sebuah platform yang dapat anda gunakan sebagai tempat interaksi antara anda dengan pengguna lainnya. ",
@@ -19,10 +22,11 @@ const Layanan = () => {
     },
     {
       id: 3,
+      icon: ShoppingBag,
       title: "HJ Codin Tech Store",
       description:
-        "HJ Codin Tech Store adalah sebuah platform yang dapat anda gunakan untuk memesan jasa pembuatan aplikasi / website kepada tim HJ Codin Tech. ",
-      path: "",
+        "HJ Codin Tech Store adalah sebuah platform yang dapat anda gunakan untuk memesan jasa pembuatan aplikasi / website , dan produk yang tersedia di HJ Codin Tech Store. ",
+      path: "https://www.hjcodintech.shop",
     },
   ];
   return (
@@ -41,24 +45,15 @@ const Layanan = () => {
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {layananList.map((layanan, index) => (
               <>
-                <Link
+                <a
+                  target="__blank"
                   key={index}
                   className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10"
                   href={layanan.path}
                 >
-                  {layanan.title === "HJ Codin Tech Academy" ? (
-                    <div className="text-pink-500 size-10">
-                      <BookOpen />
-                    </div>
-                  ) : layanan.title === "HJ Codin Tech Community" ? (
-                    <div className="text-pink-500 size-10">
-                      <Group />
-                    </div>
-                  ) : layanan.title === "HJ Codin Tech Store" ? (
-                    <div className="text-pink-500 size-10">
-                      <ShoppingBag />
-                    </div>
-                  ) : null}
+                  <div className="text-pink-500 size-10">
+                    <layanan.icon />
+                  </div>
 
                   <h2 className="mt-4 text-xl font-bold text-white">
                     {layanan.title}
@@ -67,7 +62,7 @@ const Layanan = () => {
                   <p className="mt-1 text-sm text-gray-300">
                     {layanan.description}
                   </p>
-                </Link>
+                </a>
               </>
             ))}
           </div>
